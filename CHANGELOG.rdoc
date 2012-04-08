@@ -1,2 +1,4 @@
-= Version 0.1.0
+= Version 0.3.0
 * Basic functionality: login, change status, send messages, receive messages
+= Version 0.3.1
+* Multiply lines handler fix

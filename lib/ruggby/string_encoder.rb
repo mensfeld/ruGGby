@@ -9,7 +9,7 @@ module RuGGby
     INPUT  = 'UTF-8'
     OUTPUT = 'windows-1250'
 
-    STRIP_REGEXP = /<span.*>(.*)<\/span>/ix
+    STRIP_REGEXP = /<span.*?>(.*)<\/span>/ix
 
     # Convert message into INPUT format
     def self.to_input(msg)
@@ -34,9 +34,12 @@ module RuGGby
 
     # Perform both strip and utf8 conversion
     def self.complex(msg)
-      to_input(strip(msg))
+      add_newlines(to_input(strip(msg)))
     end
 
+    def self.add_newlines(msg)
+      msg.gsub!('<br>', "\r\n")
+    end
   end
 
 end
