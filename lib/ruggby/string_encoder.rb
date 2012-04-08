@@ -38,7 +38,7 @@ module RuGGby
     end
 
     def self.add_newlines(msg)
-      msg.gsub!('<br>', "\r\n")
+      msg.gsub('<br>', "\r\n")
     end
   end
 
