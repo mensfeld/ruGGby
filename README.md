@@ -91,7 +91,7 @@ gg.on_new_message do |uid, time, message|
   gg.message(uid, message)
 end
 
-gg.login!
+gg.login!(LOGIN, PASSWORD)
 gg.wait
 ```
 

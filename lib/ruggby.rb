@@ -15,6 +15,8 @@
 # gg.wait
 # gg.logout!
 
+$:.unshift File.dirname(__FILE__)
+
 module RuGGby
 
   autoload :Version, 'ruggby/version.rb'

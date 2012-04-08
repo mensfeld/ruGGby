@@ -36,3 +36,4 @@ pkg/
 LICENSE
 QUERIES
 coverage/*
+run.rb
