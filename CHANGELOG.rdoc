@@ -2,5 +2,5 @@
 * Basic functionality: login, change status, send messages, receive messages
 = Version 0.3.1
 * Multiply lines handler fix
-= Version 0.3.2
+= Version 0.3.2.1
 * Gsub fix (fuc**ng exclamation)
