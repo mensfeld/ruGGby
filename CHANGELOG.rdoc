@@ -1,0 +1,2 @@
+= Version 0.1.0
+* Basic functionality: login, change status, send messages, receive messages
