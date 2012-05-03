@@ -19,44 +19,44 @@ $:.unshift File.dirname(__FILE__)
 
 module RuGGby
 
-  autoload :Version, 'ruggby/version.rb'
+  autoload :Version, 'ruggby/version'
 
   module Packet
     # Factory used to build incoming packets out of raw socket messages
-    autoload :Factory, 'ruggby/packet/factory.rb'
+    autoload :Factory, 'ruggby/packet/factory'
 
     # Incoming packets used to wrap the raw socket messages send by GG server
     module Incoming
       path = 'ruggby/packet/incoming'
-      autoload :Base,        "#{path}/base.rb"
-      autoload :LoginStatus, "#{path}/login_status.rb"
-      autoload :Message,     "#{path}/message.rb"
-      autoload :Welcome,     "#{path}/welcome.rb"
+      autoload :Base,        "#{path}/base"
+      autoload :LoginStatus, "#{path}/login_status"
+      autoload :Message,     "#{path}/message"
+      autoload :Welcome,     "#{path}/welcome"
     end
 
     # Outgoing packets send to GG server
     module Outgoing
       path = 'ruggby/packet/outgoing'
-      autoload :Base,         "#{path}/base.rb"
-      autoload :Login,        "#{path}/login.rb"
-      autoload :Mark,         "#{path}/mark.rb"
-      autoload :Message,      "#{path}/message.rb"
-      autoload :Ping,         "#{path}/ping.rb"
-      autoload :ChangeStatus, "#{path}/change_status.rb"
+      autoload :Base,         "#{path}/base"
+      autoload :Login,        "#{path}/login"
+      autoload :Mark,         "#{path}/mark"
+      autoload :Message,      "#{path}/message"
+      autoload :Ping,         "#{path}/ping"
+      autoload :ChangeStatus, "#{path}/change_status"
     end
   end
 
   # Available actions (we can hookup to all of them)
   module Action
     path = 'ruggby/action'
-    autoload :Base,          "#{path}/base.rb"
-    autoload :CreateMessage, "#{path}/create_message.rb"
-    autoload :Login,         "#{path}/login.rb"
-    autoload :Mark,          "#{path}/mark.rb"
-    autoload :NewMessage,    "#{path}/new_message.rb"
-    autoload :Ping,          "#{path}/ping.rb"
-    autoload :Read,          "#{path}/read.rb"
-    autoload :ChangeStatus,  "#{path}/change_status.rb"
+    autoload :Base,          "#{path}/base"
+    autoload :CreateMessage, "#{path}/create_message"
+    autoload :Login,         "#{path}/login"
+    autoload :Mark,          "#{path}/mark"
+    autoload :NewMessage,    "#{path}/new_message"
+    autoload :Ping,          "#{path}/ping"
+    autoload :Read,          "#{path}/read"
+    autoload :ChangeStatus,  "#{path}/change_status"
   end
 
   # Other stuff that is needed

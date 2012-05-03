@@ -51,8 +51,8 @@ module RuGGby
       {:host => gg_info[0], :port => gg_info[1]}
     end
 
-    # Buduje caly adres ktory bedziemy odpytywac o IP i port serwera do laczenia
-    # sie z GG
+    # Build the whole GG address
+    # It is needed to obtain the "real" server IP address
     def self.build_url(gg_nr)
       @build_url ||= "#{URL}/appsvc/appmsg_ver8.asp?fmnumber=#{gg_nr}&version=#{VERSION}&lastmsg=0"
     end
