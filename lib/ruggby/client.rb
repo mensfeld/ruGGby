@@ -90,6 +90,12 @@ module RuGGby
       @loops[:ping].join
     end
 
+    def check_uin_status(uin)
+      @logger.debug('RuGGby::Client message')
+
+      RuGGby::Action::CheckUinStatus.new(self, uin).run!
+    end
+
   end
 
 end
