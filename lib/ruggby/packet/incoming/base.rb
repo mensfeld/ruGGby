@@ -8,7 +8,8 @@ module RuGGby
       # Unpacks the data accorging to the pattern method
       class Base
 
-        class NotImplemented < Exception; end
+        class NotImplemented < Exception;
+        end
 
         attr_reader :data
 

@@ -2,16 +2,16 @@ module RuGGby
 
   class Logger
 
-    DEBUG   = 0
-    INFO    = 1
-    ERROR   = 2
-    FATAL   = 3
+    DEBUG = 0
+    INFO = 1
+    ERROR = 2
+    FATAL = 3
 
     LEVEL_MAP = {
-      :debug => DEBUG,
-      :info  => INFO,
-      :error => ERROR,
-      :fatal => FATAL
+        :debug => DEBUG,
+        :info => INFO,
+        :error => ERROR,
+        :fatal => FATAL
     }
 
     # Available log levels
@@ -24,19 +24,27 @@ module RuGGby
 
     # Returns +true+ iff the current level allows for the printing of
     # +DEBUG+ messages.
-    def debug?; @level <= DEBUG; end
+    def debug?;
+      @level <= DEBUG;
+    end
 
     # Returns +true+ iff the current level allows for the printing of
     # +INFO+ messages.
-    def info?; @level <= INFO; end
+    def info?;
+      @level <= INFO;
+    end
 
     # Returns +true+ iff the current level allows for the printing of
     # +ERROR+ messages.
-    def error?; @level <= ERROR; end
+    def error?;
+      @level <= ERROR;
+    end
 
     # Returns +true+ iff the current level allows for the printing of
     # +FATAL+ messages.
-    def fatal?; @level <= FATAL; end
+    def fatal?;
+      @level <= FATAL;
+    end
 
     def debug(msg)
       handle_message(msg, :debug)

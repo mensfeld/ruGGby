@@ -8,9 +8,10 @@ module RuGGby
     # GG version that we send to the URL
     VERSION = '10.0.0.7669'
     # URL with 'real' server address
-    URL     = 'http://appmsg.gadu-gadu.pl'
+    URL = 'http://appmsg.gadu-gadu.pl'
 
-    class NotOperating < Exception; end
+    class NotOperating < Exception;
+    end
 
     attr_reader :host, :port
 
@@ -42,7 +43,7 @@ module RuGGby
 
     # Create a TCPSocket
     def socket
-      @socket ||= ::TCPSocket.new(@host , @port)
+      @socket ||= ::TCPSocket.new(@host, @port)
     end
 
     # Get connection params

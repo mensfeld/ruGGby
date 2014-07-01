@@ -8,11 +8,11 @@ module RuGGby
       attr_reader :uin, :message
 
       def initialize(client, data)
-        @client     = client
-        @block      = client.actions[:new_message]
-        @uin        = data[0]
+        @client = client
+        @block = client.actions[:new_message]
+        @uin = data[0]
         @created_at = Time.at(data[2])
-        @message    = StringEncoder.complex(data[4])
+        @message = StringEncoder.complex(data[4])
       end
 
       def run!

@@ -8,7 +8,7 @@ module RuGGby
 
       def initialize(client)
         @client = client
-        @block  = client.actions[:mark]
+        @block = client.actions[:mark]
       end
 
       # Send a mark packet

@@ -17,6 +17,10 @@ module RuGGby
       self.actions[:change_status] = block
     end
 
+    def on_status_changed(&block)
+      self.actions[:status_changed] = block
+    end
+
   end
 
 end

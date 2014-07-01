@@ -22,7 +22,8 @@ module RuGGby
 
         end
 
-        class NotImplemented < Exception; end
+        class NotImplemented < Exception;
+        end
 
         def initialize(params = {})
           params.each do |key, value|
@@ -61,7 +62,7 @@ module RuGGby
       end
 
     end
-    
+
   end
 
 end
