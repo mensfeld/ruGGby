@@ -25,6 +25,10 @@ module RuGGby
             Packet::Incoming::LoginStatus.new(true)
           when Packet::Incoming::Message::TYPE then
             Packet::Incoming::Message.new(@data)
+          when Packet::Incoming::Status::TYPE then
+            Packet::Incoming::Status.new(@data)
+          when Packet::Incoming::Status::TYPE_2 then
+            Packet::Incoming::Status.new(@data)
           when nil
             Packet::Incoming::LoginStatus.new(false)
           else
@@ -35,5 +39,5 @@ module RuGGby
     end
 
   end
-  
+
 end

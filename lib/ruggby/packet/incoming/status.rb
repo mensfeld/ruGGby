@@ -6,18 +6,18 @@ module RuGGby
 
       # Packet containing and incoming message
       # Message packet contains not formatted data (not parsed, etc) so
-      class Message < RuGGby::Packet::Incoming::Base
+      class Status < RuGGby::Packet::Incoming::Base
 
-        TYPE = 0x002e
-        PATTERN = 'LLLLa*'
+        TYPE = 0x0036
+        TYPE_2 = 0x0037
+        PATTERN = 'LLa*'
 
-        attr_reader :uin, :message, :data, :created_at
+        attr_reader :uin, :status
 
         def initialize(data)
           super
           @uin = @data[0]
-          @created_at = @data[2]
-          @message = @data[4]
+          @status = @data[1]
         end
 
         private

@@ -8,7 +8,7 @@ module RuGGby
       # Contains a seed used to mix with password before authorization
       class Welcome < RuGGby::Packet::Incoming::Base
 
-        TYPE    = 0x0001
+        TYPE = 0x0001
         PATTERN = 'I'
 
         attr_reader :seed

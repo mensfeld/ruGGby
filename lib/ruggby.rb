@@ -28,45 +28,49 @@ module RuGGby
     # Incoming packets used to wrap the raw socket messages send by GG server
     module Incoming
       path = 'ruggby/packet/incoming'
-      autoload :Base,        "#{path}/base"
+      autoload :Base, "#{path}/base"
       autoload :LoginStatus, "#{path}/login_status"
-      autoload :Message,     "#{path}/message"
-      autoload :Welcome,     "#{path}/welcome"
+      autoload :Message, "#{path}/message"
+      autoload :Status, "#{path}/status"
+      autoload :Welcome, "#{path}/welcome"
     end
 
     # Outgoing packets send to GG server
     module Outgoing
       path = 'ruggby/packet/outgoing'
-      autoload :Base,         "#{path}/base"
-      autoload :Login,        "#{path}/login"
-      autoload :Mark,         "#{path}/mark"
-      autoload :Message,      "#{path}/message"
-      autoload :Ping,         "#{path}/ping"
+      autoload :Base, "#{path}/base"
+      autoload :Login, "#{path}/login"
+      autoload :Mark, "#{path}/mark"
+      autoload :Message, "#{path}/message"
+      autoload :Ping, "#{path}/ping"
       autoload :ChangeStatus, "#{path}/change_status"
+      autoload :CheckUinStatus, "#{path}/check_uin_status"
     end
   end
 
   # Available actions (we can hookup to all of them)
   module Action
     path = 'ruggby/action'
-    autoload :Base,          "#{path}/base"
+    autoload :Base, "#{path}/base"
     autoload :CreateMessage, "#{path}/create_message"
-    autoload :Login,         "#{path}/login"
-    autoload :Mark,          "#{path}/mark"
-    autoload :NewMessage,    "#{path}/new_message"
-    autoload :Ping,          "#{path}/ping"
-    autoload :Read,          "#{path}/read"
-    autoload :ChangeStatus,  "#{path}/change_status"
+    autoload :Login, "#{path}/login"
+    autoload :Mark, "#{path}/mark"
+    autoload :NewMessage, "#{path}/new_message"
+    autoload :NewStatus, "#{path}/new_status"
+    autoload :Ping, "#{path}/ping"
+    autoload :Read, "#{path}/read"
+    autoload :ChangeStatus, "#{path}/change_status"
+    autoload :CheckUinStatus, "#{path}/check_uin_status"
   end
 
   # Other stuff that is needed
-  autoload :Socket,        'ruggby/socket'
-  autoload :Logger,        'ruggby/logger'
-  autoload :Callback,      'ruggby/callback'
-  autoload :Converter,     'ruggby/converter'
-  autoload :Password,      'ruggby/password'
-  autoload :Threader,      'ruggby/threader'
+  autoload :Socket, 'ruggby/socket'
+  autoload :Logger, 'ruggby/logger'
+  autoload :Callback, 'ruggby/callback'
+  autoload :Converter, 'ruggby/converter'
+  autoload :Password, 'ruggby/password'
+  autoload :Threader, 'ruggby/threader'
   autoload :StringEncoder, 'ruggby/string_encoder'
-  autoload :Client,        'ruggby/client'
+  autoload :Client, 'ruggby/client'
 
 end

@@ -6,9 +6,9 @@ module RuGGby
     class CreateMessage < Base
 
       def initialize(client, uin, message)
-        @client  = client
-        @block   = client.actions[:create_message]
-        @uin     = uin
+        @client = client
+        @block = client.actions[:create_message]
+        @uin = uin
         @message = message
       end
 

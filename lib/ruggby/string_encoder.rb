@@ -6,7 +6,7 @@ module RuGGby
   # Methods used to do stuff on the strings
   class StringEncoder
 
-    INPUT  = 'UTF-8'
+    INPUT = 'UTF-8'
     OUTPUT = 'windows-1250'
 
     STRIP_REGEXP = /<span.*?>(.*)<\/span>/ix

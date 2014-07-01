@@ -8,9 +8,9 @@ module RuGGby
       attr_reader :status, :description
 
       def initialize(client, status, description)
-        @client      = client
-        @block       = client.actions[:change_status]
-        @status      = status
+        @client = client
+        @block = client.actions[:change_status]
+        @status = status
         @description = description
       end
 

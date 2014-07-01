@@ -13,7 +13,7 @@ module RuGGby
 
       def initialize(client)
         @client = client
-        @block  = client.actions[:ping]
+        @block = client.actions[:ping]
       end
 
       def run!

@@ -9,7 +9,7 @@ module RuGGby
       # a GG number an a message
       class Message < RuGGby::Packet::Outgoing::Base
 
-        TYPE    = 0x0b
+        TYPE = 0x0b
         PATTERN = 'LLLa*C'
 
         attr_accessor :message, :uin
