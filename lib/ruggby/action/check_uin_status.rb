@@ -5,9 +5,8 @@ module RuGGby
     class CheckUinStatus < Base
 
       def initialize(client, uin)
-        @client      = client
-        @block       = client.actions[:check_uin_status]
-        @uin         = uin
+        @client = client
+        @uin = uin
       end
 
       def run!

@@ -11,6 +11,7 @@ lib/ruggby/action/create_message.rb
 lib/ruggby/action/login.rb
 lib/ruggby/action/mark.rb
 lib/ruggby/action/new_message.rb
+lib/ruggby/action/new_status.rb
 lib/ruggby/action/check_uin_status.rb
 lib/ruggby/action/ping.rb
 lib/ruggby/action/read.rb
@@ -22,6 +23,7 @@ lib/ruggby/packet/factory.rb
 lib/ruggby/packet/incoming/base.rb
 lib/ruggby/packet/incoming/login_status.rb
 lib/ruggby/packet/incoming/message.rb
+lib/ruggby/packet/incoming/status.rb
 lib/ruggby/packet/incoming/welcome.rb
 lib/ruggby/packet/outgoing/base.rb
 lib/ruggby/packet/outgoing/change_status.rb

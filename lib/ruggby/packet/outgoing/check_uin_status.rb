@@ -9,8 +9,8 @@ module RuGGby
       # a GG number
       class CheckUinStatus < RuGGby::Packet::Outgoing::Base
 
-        TYPE    = 0x0010
-        PATTERN = 'La'
+        TYPE = 0x000d
+        PATTERN = 'LC'
 
         attr_accessor :uin
 

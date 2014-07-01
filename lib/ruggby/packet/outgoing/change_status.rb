@@ -10,8 +10,8 @@ module RuGGby
       # => description
       class ChangeStatus < RuGGby::Packet::Outgoing::Base
 
-        TYPE       = 0x0038
-        PATTERN    = 'LLL'
+        TYPE = 0x0038
+        PATTERN = 'LLL'
 
         attr_accessor :status, :description
 
@@ -29,10 +29,10 @@ module RuGGby
 
         def body
           [
-           @status,             # L
-           0,                   # L
-           @description.length, # L
-           @description         # a
+              @status, # L
+              0, # L
+              @description.length, # L
+              @description # a
           ]
         end
 

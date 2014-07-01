@@ -10,20 +10,20 @@ module RuGGby
       attr_accessor :log_level
     end
 
-    @logger    ||= RuGGby::Logger
+    @logger ||= RuGGby::Logger
     @log_level ||= :debug
 
     attr_reader :socket, :password
     attr_writer :logged
-    attr_accessor :loops, :actions, :threads, :reconnect, :status, 
-      :description, :login, :logger
+    attr_accessor :loops, :actions, :threads, :reconnect, :status,
+                  :description, :login, :logger
 
     def initialize()
-      @loops   = {}
+      @loops = {}
       @actions = {}
       @threads = []
-      @logged  = false
-      @logger  = self.class.logger.new(self.class.log_level)
+      @logged = false
+      @logger = self.class.logger.new(self.class.log_level)
 
       @logger.debug('RuGGby::Client initialized')
     end
@@ -31,9 +31,9 @@ module RuGGby
     def login!(gg_nr, password, params = {})
       @logger.debug('RuGGby::Client login in')
 
-      @login       = gg_nr
-      @password    = password
-      @status      = params[:status] || :available
+      @login = gg_nr
+      @password = password
+      @status = params[:status] || :available
       @description = params[:description]
 
       if logged?
@@ -59,7 +59,7 @@ module RuGGby
         RuGGby::Action::Ping.new(self).run!
         RuGGby::Action::Read.new(self).run!
       end
-      
+
       @logged
     end
 
@@ -70,8 +70,8 @@ module RuGGby
     def logout!
       @logger.debug('RuGGby::Client logout')
 
-      @threads.each { |t| t.exit    }
-      @loops.each   { |k, v| v.exit }
+      @threads.each { |t| t.exit }
+      @loops.each { |k, v| v.exit }
       @socket.close
       @logged = false
     end
@@ -91,7 +91,7 @@ module RuGGby
     end
 
     def check_uin_status(uin)
-      @logger.debug('RuGGby::Client message')
+      @logger.debug('RuGGby::Client checking buddy')
 
       RuGGby::Action::CheckUinStatus.new(self, uin).run!
     end

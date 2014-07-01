@@ -10,7 +10,7 @@ module RuGGby
 
       def initialize(client)
         @client = client
-        @block  = client.actions[:read]
+        @block = client.actions[:read]
       end
 
       # Start a thread that reads data and if there is any data - try to create
@@ -29,6 +29,9 @@ module RuGGby
                 case RuGGby::Converter.action(el.class::TYPE)
                   when :new_message then
                     action = RuGGby::Action::NewMessage.new(@client, el.data)
+                    Threader.run(@client, action)
+                  when :status_changed then
+                    action = RuGGby::Action::NewStatus.new(@client, el.data)
                     Threader.run(@client, action)
                 end
 

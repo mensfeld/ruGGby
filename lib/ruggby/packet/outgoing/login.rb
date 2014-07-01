@@ -13,8 +13,8 @@ module RuGGby
       # => :status
       class Login < RuGGby::Packet::Outgoing::Base
 
-        TYPE       = 0x0031
-        PATTERN    = 'La2Ca64LLLLSLSCCLa35L'
+        TYPE = 0x0031
+        PATTERN = 'La2Ca64LLLLSLSCCLa35L'
         GG_VERSION = 'Gadu-Gadu Client build 10.0.0.10450'
 
         attr_accessor :uin, :hash, :status, :description
@@ -34,23 +34,23 @@ module RuGGby
 
         def body
           [
-           @uin.to_i,           # L
-           'pl',                # a2
-           0x02,                # C
-           @hash,               # a64
-           @status,             # L
-           0,                   # L
-           0x00000007,          # L
-           0,                   # L
-           0,                   # S
-           0,                   # L
-           0,                   # S
-           64,                  # C
-           0x64,                # C
-           GG_VERSION.length,   # L
-           GG_VERSION,          #a35
-           @description.length, #L,
-           @description         # Nothing?
+              @uin.to_i, # L
+              'pl', # a2
+              0x02, # C
+              @hash, # a64
+              @status, # L
+              0, # L
+              0x00000007, # L
+              0, # L
+              0, # S
+              0, # L
+              0, # S
+              64, # C
+              0x64, # C
+              GG_VERSION.length, # L
+              GG_VERSION, #a35
+              @description.length, #L,
+              @description # Nothing?
           ]
         end
 

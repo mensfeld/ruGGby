@@ -7,7 +7,7 @@ module RuGGby
 
       def initialize(client)
         @client = client
-        @block  = client.actions[:login]
+        @block = client.actions[:login]
       end
 
       def run!
@@ -16,10 +16,10 @@ module RuGGby
         welcome = RuGGby::Packet::Factory.new(@client.socket).build
 
         login = Packet::Outgoing::Login.new(
-          :uin         => @client.login,
-          :hash        => Password.hash(@client.password, welcome.seed),
-          :status      => @client.status,
-          :description => @client.description
+            :uin => @client.login,
+            :hash => Password.hash(@client.password, welcome.seed),
+            :status => @client.status,
+            :description => @client.description
         )
 
         @client.logger.debug('RuGGby::Action::Login sending Login packet')
@@ -28,7 +28,7 @@ module RuGGby
         login_status = RuGGby::Packet::Factory.new(@client.socket).build
 
         @client.logger.debug("RuGGby::Action::Login #{login_status.class}")
-        
+
         @client.logged = login_status.successful?
         @block.call if @block
       end
