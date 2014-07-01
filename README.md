@@ -130,6 +130,7 @@ RuGGby supports events, so you can assign your own events on demand. Events list
 * :login - event triggered after login
 * :create_message - event triggered after message has been send
 * :change_status - event triggered after our status/description change
+* :status_changed - event triggered after someone on buddy list change status
 
 Each event block is triggered with parameters:
 
@@ -140,6 +141,7 @@ Each event block is triggered with parameters:
 * :login - no parameters
 * :create_message(uin, message)
 * :change_status(status, description)
+* :check_uin_status(uin)
 
 In order to assign an action to an event, pass a block into events hash:
 
@@ -165,6 +167,17 @@ end
 ```
 
 The *:new_message* event is triggered in a separate thread so the socket read process is still going. The above code will (after login!) return a message to it's sender.
+
+To add a friend to a buddy list to listening his status you can:
+
+```ruby
+gg.check_uin_status(uin) # to listen buddy initial status, move this line after 'on_status_changed'
+
+gg.on_status_changed do |uin,status|
+  print "Friend #{uin} changed status to #{status}"
+end
+
+```
 
 ## TODO
 
