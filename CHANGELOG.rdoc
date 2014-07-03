@@ -4,3 +4,5 @@
 * Multiply lines handler fix
 = Version 0.3.2.1
 * Gsub fix (fuc**ng exclamation)
+= Version 0.3.3
+* Added buddy list status change observer

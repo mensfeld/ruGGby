@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('ruggby', '0.3.2.1') do |p|
+Echoe.new('ruggby', '0.3.3') do |p|
   p.description    = 'Gadu Gadu protocol client implementation in Ruby language'
   p.url            = 'https://github.com/mensfeld/ruGGby'
   p.author         = 'Maciej Mensfeld'
