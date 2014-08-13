@@ -1,10 +1,7 @@
 module RuGGby
-
   module Action
-
     # Login action - will log user in to a GG account
     class Login < Base
-
       def initialize(client)
         @client = client
         @block = client.actions[:login]
@@ -16,10 +13,10 @@ module RuGGby
         welcome = RuGGby::Packet::Factory.new(@client.socket).build
 
         login = Packet::Outgoing::Login.new(
-            :uin => @client.login,
-            :hash => Password.hash(@client.password, welcome.seed),
-            :status => @client.status,
-            :description => @client.description
+          uin:         @client.login,
+          hash:        Password.hash(@client.password, welcome.seed),
+          status:      @client.status,
+          description: @client.description
         )
 
         @client.logger.debug('RuGGby::Action::Login sending Login packet')
@@ -32,9 +29,6 @@ module RuGGby
         @client.logged = login_status.successful?
         @block.call if @block
       end
-
     end
-
   end
-
 end

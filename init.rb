@@ -1,2 +1,5 @@
 require 'ruggby'
 require 'iconv'
+require 'socket'
+require 'open-uri'
+require 'digest/sha1'

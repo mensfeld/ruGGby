@@ -1,5 +1,4 @@
 module RuGGby
-
-  VERSION = '0.3.3'
-
+  # RuGGby lib current version
+  VERSION = '0.3.4'
 end

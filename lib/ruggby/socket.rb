@@ -1,8 +1,4 @@
-require 'socket'
-require 'open-uri'
-
 module RuGGby
-
   # TCP socket proxy
   class Socket
     # GG version that we send to the URL
@@ -10,8 +6,7 @@ module RuGGby
     # URL with 'real' server address
     URL = 'http://appmsg.gadu-gadu.pl'
 
-    class NotOperating < Exception;
-    end
+    class NotOperating < StandardError; end
 
     attr_reader :host, :port
 
@@ -49,7 +44,7 @@ module RuGGby
     # Get connection params
     def self.connection_params(gg_nr)
       gg_info = open(build_url(gg_nr)).readlines[0].split(/\s/)[2].split(':')
-      {:host => gg_info[0], :port => gg_info[1]}
+      { host: gg_info[0], port: gg_info[1] }
     end
 
     # Build the whole GG address
@@ -60,9 +55,7 @@ module RuGGby
 
     #  Raise exception if we will get a not operating 'real' server
     def ensure_operating
-      raise NotOperating if @host == 'notoperating'
+      fail NotOperating if @host == 'notoperating'
     end
-
   end
-
 end

@@ -1,10 +1,7 @@
 module RuGGby
-
   module Action
-
     # Action invoken when we want to change status
     class ChangeStatus < Base
-
       attr_reader :status, :description
 
       def initialize(client, status, description)
@@ -22,9 +19,6 @@ module RuGGby
 
         @block.call(@status, @description) if @block
       end
-
     end
-
   end
-
 end

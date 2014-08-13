@@ -1,14 +1,11 @@
 module RuGGby
-
   module Action
-
     # Ping action
     # In order to maintaine a TCP connection with GG server, we need to send
     # a ping from time to time.
     # This is done in a background thread (don't need to worry about it
     # just ignite it and forget ;) )
     class Ping < Base
-
       SLEEP_TIME = 180
 
       def initialize(client)
@@ -32,9 +29,6 @@ module RuGGby
           end
         end
       end
-
     end
-
   end
-
 end

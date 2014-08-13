@@ -1,15 +1,11 @@
 module RuGGby
-
   module Packet
-
     module Outgoing
-
       # Packet send when we want to change status
       # Params:
       # => new_status
       # => description
       class ChangeStatus < RuGGby::Packet::Outgoing::Base
-
         TYPE = 0x0038
         PATTERN = 'LLL'
 
@@ -29,10 +25,10 @@ module RuGGby
 
         def body
           [
-              @status, # L
-              0, # L
-              @description.length, # L
-              @description # a
+            @status, # L
+            0, # L
+            @description.length, # L
+            @description # a
           ]
         end
 
@@ -42,16 +38,12 @@ module RuGGby
 
         def pattern
           if @description.length > 0
-            PATTERN+"a#{@description.length}"
+            PATTERN + "a#{@description.length}"
           else
             PATTERN
           end
         end
-
       end
-
     end
-
   end
-
 end

@@ -1,14 +1,10 @@
 module RuGGby
-
   module Packet
-
     module Outgoing
-
       # Out going message class
       # When we want to send a message to a GG user, we need to provide
       # a GG number an a message
       class Message < RuGGby::Packet::Outgoing::Base
-
         TYPE = 0x0b
         PATTERN = 'LLLa*C'
 
@@ -37,11 +33,7 @@ module RuGGby
         def type
           TYPE
         end
-
       end
-
     end
-
   end
-
 end

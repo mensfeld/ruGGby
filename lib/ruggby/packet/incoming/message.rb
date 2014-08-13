@@ -1,13 +1,9 @@
 module RuGGby
-
   module Packet
-
     module Incoming
-
       # Packet containing and incoming message
       # Message packet contains not formatted data (not parsed, etc) so
       class Message < RuGGby::Packet::Incoming::Base
-
         TYPE = 0x002e
         PATTERN = 'LLLLa*'
 
@@ -25,11 +21,7 @@ module RuGGby
         def pattern
           PATTERN
         end
-
       end
-
     end
-
   end
-
 end

@@ -1,16 +1,11 @@
 module RuGGby
-
   module Packet
-
     module Outgoing
-
       # Base class for all the outgoing messages
       # Contains all the methods needed to prepare the data to be send via
       # TCPSocket
       class Base
-
         class << self
-
           attr_reader :send_only_header
 
           @send_only_header = false
@@ -19,22 +14,20 @@ module RuGGby
           def only_header
             @send_only_header = true
           end
-
         end
 
-        class NotImplemented < Exception;
-        end
+        class NotImplemented < StandardError; end
 
         def initialize(params = {})
           params.each do |key, value|
-            self.send(:"#{key}=", value)
+            send(:"#{key}=", value)
           end
         end
 
         # Pack data set according to given pattern
         def pack
           if self.class.send_only_header
-            rawbody=[].pack('')
+            rawbody = [].pack('')
           else
             rawbody = body.pack(pattern)
           end
@@ -46,23 +39,19 @@ module RuGGby
 
         # Body array
         def body
-          raise NotImplemented
+          fail NotImplemented
         end
 
         # Packet type
         def type
-          raise NotImplemented
+          fail NotImplemented
         end
 
         # Pack pattern
         def pattern
-          raise NotImplemented
+          fail NotImplemented
         end
-
       end
-
     end
-
   end
-
 end

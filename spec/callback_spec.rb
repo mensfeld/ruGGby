@@ -10,7 +10,6 @@ class Dummy
   def initialize
     @actions = {}
   end
-
 end
 
 describe RuGGby::Callback do

@@ -1,0 +1,27 @@
+AlignHash:
+  Enabled: false
+AlignParameters:
+  Enabled: false
+ClassAndModuleChildren:
+  Enabled: false
+DoubleNegation:
+  Enabled: false
+Lambda:
+  Enabled: false
+ClassLength:
+  CountComments: false
+  Max: 200
+LineLength:
+  Max: 99
+MethodLength:
+  CountComments: false
+  Max: 15
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/**
+    - script/**/*
+    - config/**/*
+    - !ruby/regexp /old_and_unused\.rb$/

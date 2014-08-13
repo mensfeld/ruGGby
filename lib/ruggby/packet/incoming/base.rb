@@ -1,15 +1,10 @@
 module RuGGby
-
   module Packet
-
     module Incoming
-
       # Base class for all the incoming packets
       # Unpacks the data accorging to the pattern method
       class Base
-
-        class NotImplemented < Exception;
-        end
+        class NotImplemented < StandardError; end
 
         attr_reader :data
 
@@ -20,13 +15,9 @@ module RuGGby
         private
 
         def pattern
-          raise NotImplemented
+          fail NotImplemented
         end
-
       end
-
     end
-
   end
-
 end

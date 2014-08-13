@@ -1,17 +1,16 @@
 module RuGGby
-
+  # RuGGby default logger
   class Logger
-
     DEBUG = 0
-    INFO = 1
+    INFO  = 1
     ERROR = 2
     FATAL = 3
 
     LEVEL_MAP = {
-        :debug => DEBUG,
-        :info => INFO,
-        :error => ERROR,
-        :fatal => FATAL
+      debug: DEBUG,
+      info:  INFO,
+      error: ERROR,
+      fatal: FATAL
     }
 
     # Available log levels
@@ -24,26 +23,26 @@ module RuGGby
 
     # Returns +true+ iff the current level allows for the printing of
     # +DEBUG+ messages.
-    def debug?;
-      @level <= DEBUG;
+    def debug?
+      @level <= DEBUG
     end
 
     # Returns +true+ iff the current level allows for the printing of
     # +INFO+ messages.
-    def info?;
-      @level <= INFO;
+    def info?
+      @level <= INFO
     end
 
     # Returns +true+ iff the current level allows for the printing of
     # +ERROR+ messages.
-    def error?;
-      @level <= ERROR;
+    def error?
+      @level <= ERROR
     end
 
     # Returns +true+ iff the current level allows for the printing of
     # +FATAL+ messages.
-    def fatal?;
-      @level <= FATAL;
+    def fatal?
+      @level <= FATAL
     end
 
     def debug(msg)
@@ -65,11 +64,7 @@ module RuGGby
     private
 
     def handle_message(msg, level)
-      if self.send(:"#{level}?")
-        printf "%-6s %s\n", level.upcase.to_s+':', msg
-      end
+      printf("%-6s %s\n", level.upcase.to_s + ':', msg) if send(:"#{level}?")
     end
-
   end
-
 end

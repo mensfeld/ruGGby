@@ -6,3 +6,5 @@
 * Gsub fix (fuc**ng exclamation)
 = Version 0.3.3
 * Added buddy list status change observer
+= Version 0.3.4
+* Major cleanup with Rubocop

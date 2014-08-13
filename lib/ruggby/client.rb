@@ -1,8 +1,6 @@
 module RuGGby
-
   # The main GG bot class used to control our GG bot
   class Client
-
     include Callback
 
     class << self
@@ -10,20 +8,26 @@ module RuGGby
       attr_accessor :log_level
     end
 
-    @logger ||= RuGGby::Logger
+    @logger    ||= RuGGby::Logger
     @log_level ||= :debug
 
-    attr_reader :socket, :password
-    attr_writer :logged
-    attr_accessor :loops, :actions, :threads, :reconnect, :status,
-                  :description, :login, :logger
+    attr_reader(*%i(
+      socket password
+    ))
+    attr_writer(*%i(
+      logged
+    ))
+    attr_accessor(*%i(
+      loops actions threads reconnect
+      description login logger status
+    ))
 
-    def initialize()
-      @loops = {}
+    def initialize
+      @loops   = {}
       @actions = {}
       @threads = []
-      @logged = false
-      @logger = self.class.logger.new(self.class.log_level)
+      @logged  = false
+      @logger  = self.class.logger.new(self.class.log_level)
 
       @logger.debug('RuGGby::Client initialized')
     end
@@ -48,7 +52,7 @@ module RuGGby
       begin
         RuGGby::Action::Login.new(self).run!
       rescue => e
-        @logger.info("RuGGby::Client login failed")
+        @logger.info('RuGGby::Client login failed')
         @logger.error("RuGGby::Client #{e}")
 
         @logged = false
@@ -64,14 +68,14 @@ module RuGGby
     end
 
     def logged?
-      @logged
+      !!@logged
     end
 
     def logout!
       @logger.debug('RuGGby::Client logout')
 
       @threads.each { |t| t.exit }
-      @loops.each { |k, v| v.exit }
+      @loops.each { |_k, v| v.exit }
       @socket.close
       @logged = false
     end
@@ -95,7 +99,5 @@ module RuGGby
 
       RuGGby::Action::CheckUinStatus.new(self, uin).run!
     end
-
   end
-
 end

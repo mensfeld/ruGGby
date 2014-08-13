@@ -1,11 +1,9 @@
 module RuGGby
-
   module Action
-
     # Action reading from socket - will check every SLEEP_TIME if there is a
     # data in TCPSocket
     class Read < Base
-
+      # How long should it wait between socker reading attemps
       SLEEP_TIME = 0.2
 
       def initialize(client)
@@ -23,16 +21,16 @@ module RuGGby
             loop do
               sleep SLEEP_TIME
 
-              if el = RuGGby::Packet::Factory.new(@client.socket).build
+              if (el = RuGGby::Packet::Factory.new(@client.socket).build)
                 @client.logger.info("RuGGby::Action::Read - type: #{el.class::TYPE}")
 
                 case RuGGby::Converter.action(el.class::TYPE)
-                  when :new_message then
-                    action = RuGGby::Action::NewMessage.new(@client, el.data)
-                    Threader.run(@client, action)
-                  when :status_changed then
-                    action = RuGGby::Action::NewStatus.new(@client, el.data)
-                    Threader.run(@client, action)
+                when :new_message then
+                  action = RuGGby::Action::NewMessage.new(@client, el.data)
+                  Threader.run(@client, action)
+                when :status_changed then
+                  action = RuGGby::Action::NewStatus.new(@client, el.data)
+                  Threader.run(@client, action)
                 end
 
                 @block.call(el) if @block
@@ -44,9 +42,6 @@ module RuGGby
           end
         end
       end
-
     end
-
   end
-
 end

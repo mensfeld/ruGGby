@@ -1,26 +1,11 @@
-# RuGGby is a simple (not completed) implementation of a GG  written in Ruby
-# It allows us to login to our account and receive/send messages
+$LOAD_PATH.unshift File.dirname(__FILE__)
 
-# Currently due to lack of time this are the only actions that are available
-
-# Usage example:
-
-# gg = RuGGby::Client.new
-#
-# gg.on_new_message do |uid, message|
-#   gg.message(uid, message)
-# end
-#
-# gg.login!(gg_nr, Pass)
-# gg.wait
-# gg.logout!
-
-$:.unshift File.dirname(__FILE__)
-
+# RuGGby is a simple implementation of a GG written in Ruby
+# It allows to login to account and receive/send messages
 module RuGGby
-
   autoload :Version, 'ruggby/version'
 
+  # All things related directly to packets that we send to GG
   module Packet
     # Factory used to build incoming packets out of raw socket messages
     autoload :Factory, 'ruggby/packet/factory'
@@ -72,5 +57,4 @@ module RuGGby
   autoload :Threader, 'ruggby/threader'
   autoload :StringEncoder, 'ruggby/string_encoder'
   autoload :Client, 'ruggby/client'
-
 end

@@ -1,9 +1,6 @@
 module RuGGby
-
   module Action
-
     class CheckUinStatus < Base
-
       def initialize(client, uin)
         @client = client
         @uin = uin
@@ -17,9 +14,6 @@ module RuGGby
 
         @block.call(@uin) if @block
       end
-
     end
-
   end
-
 end

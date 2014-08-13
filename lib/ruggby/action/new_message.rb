@@ -1,10 +1,7 @@
 module RuGGby
-
   module Action
-
     # Action invoken when new message occures
     class NewMessage < Base
-
       attr_reader :uin, :message
 
       def initialize(client, data)
@@ -20,9 +17,6 @@ module RuGGby
 
         @block.call(@uin, @created_at, @message) if @block
       end
-
     end
-
   end
-
 end

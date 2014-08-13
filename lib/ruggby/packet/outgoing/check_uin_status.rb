@@ -1,14 +1,10 @@
 module RuGGby
-
   module Packet
-
     module Outgoing
-
       # Out going check uin status class
       # When we want to check if someone is available or not we need to provide
       # a GG number
       class CheckUinStatus < RuGGby::Packet::Outgoing::Base
-
         TYPE = 0x000d
         PATTERN = 'LC'
 
@@ -33,11 +29,7 @@ module RuGGby
         def type
           TYPE
         end
-
       end
-
     end
-
   end
-
 end
