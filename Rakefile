@@ -7,6 +7,7 @@ Echoe.new('ruggby', '0.3.3') do |p|
   p.url            = 'https://github.com/mensfeld/ruGGby'
   p.author         = 'Maciej Mensfeld'
   p.email          = 'maciej@mensfeld.pl'
+  p.license        = 'MIT'
   p.ignore_pattern = ['tmp/*', 'script/*']
   p.development_dependencies = ['rspec >=2.0.0', 'mocha']
 end
